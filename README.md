@@ -99,6 +99,6 @@ SSH into the control node and follow the steps below:
 - Which URL do you navigate to in order to check that the ELK server is running? http://40.86.102.129:5601/app/kibana
 
 Filebeat playbook:
-![Filebeat playbook](./Playbooks/filebeat-playbook.yml)
+![Filebeat playbook](Playbooks/filebeat-playbook.yml)
 Metricbeat playbook:
 ![Metricbeat playbook](./Playbooks/metricbeat-playbook.yml)
