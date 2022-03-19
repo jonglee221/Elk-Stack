@@ -100,6 +100,7 @@ SSH into the control node and follow the steps below:
 
 filebeats playbook:
 ```bash
+---
 - name: Installing and Launch Filebeat
   hosts: webservers
   become: yes
