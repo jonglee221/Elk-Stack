@@ -65,8 +65,10 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 The playbook implements the following tasks:
 - Installation of docker.io, pip3, and the docker module: 
 ![Docker Output](Images/Docker.io.png)
-- Use of Sysctl: [Sysctl](Images/Systemctl.png)
-- Docker download and launch for Elk Server: [Elk Server](Images/Launch-Docker.png)
+- Use of Sysctl: 
+![Sysctl](Images/Systemctl.png)
+- Docker download and launch for Elk Server:
+![Elk Server](Images/Launch-Docker.png)
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
