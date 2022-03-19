@@ -63,7 +63,7 @@ A summary of the access policies in place can be found in the table below.
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because services running can be limited, system updates/installations can be streamlines, and processes become more replicable.
 
 The playbook implements the following tasks:
-- Installation of docker.io, pip3, and the docker module: [Docker Output](Images/Docker.io.png)
+- Installation of docker.io, pip3, and the docker module: ![Docker Output](Images/Docker.io.png)
 - Use of Sysctl: [Sysctl](Images/Systemctl.png)
 - Docker download and launch for Elk Server: [Elk Server](Images/Launch-Docker.png)
 
