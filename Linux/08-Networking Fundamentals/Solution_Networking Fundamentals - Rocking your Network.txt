@@ -1,0 +1,90 @@
+Phase 1
+
+
+15.199.95.91/28 Unreachable Hollywood Database Servers
+15.199.94.91/28 Unreachable Hollywood Web Servers
+11.199.158.91/28 Unreachable Hollywood Web Servers
+167.172.144.11/32 ALIVE Hollywood Application Servers
+11.199.141.91/28 Unreachable Hollywood Application Servers
+	
+
+Scanned above IP address, using: fping 15.199.95.91 15.199.94.91 11.199.158.91 167.172.144.11 11.199.141.91
+
+
+All outputted as Unreachable except 167.172.144.11 which outputted as Alive. 167.172.144.11 has been determined to be a potential vulnerability. Recommend restricting requests to IP 167.172.144.11 to prevent successful response from PING requests.
+
+
+This occured on Layer 3 - Network layer. IP addresses and IPS are used on Layer 3.
+
+
+Phase 2
+sudo nmap -sS 167.172.144.11
+
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2022-02-07 23:07 EST
+Nmap scan report for 167.172.144.11
+Host is up (0.057s latency).
+Not shown: 996 closed ports
+PORT    STATE    SERVICE
+22/tcp  open     ssh
+25/tcp  filtered smtp
+139/tcp filtered netbios-ssn
+445/tcp filtered microsoft-ds
+
+
+Nmap done: 1 IP address (1 host up) scanned in 276.44 seconds.
+
+
+Must close the open SSH port (22).
+
+
+Port 22 - SSH is the only open port. This is on Layer 4 - Transport.
+
+
+Phase 3
+Connect to open server commands and steps:
+
+
+ssh jimi@167.172.144.11 -p 22
+Password: hendrix
+
+
+Rollingstone.com has been DNS redirected to 98.137.246.8
+
+
+It is redirected to unknown.yahoo.com
+Delete redirection in /etc/hosts file
+
+
+This is on Layer 7 of the OSI model - Application. DNS runs on this layer.
+
+
+Phase 4
+cd /etc
+cat packetcaptureinfo.txt
+Copy URL. Download file from google drive
+Open File in WireShark
+
+
+MAC address change from 00:0c:29:0f:71:a3 to 00:0c:29:1d:b3:b1 shown through ARP filter
+ARP and MAC address has been spoofed. Make ARP STATIC!
+
+
+HTTP filter:
+    [Full request URI: http://forms.yola.com/formservice/en/3f64542cb2e3439c9bd01649ce5595ad/6150f4b54616438dbb01eb877296d534/c3a179f3630a440a96196bead53b76fa/I660593e583e747f1a91a77ad0d3195e3/]
+    [HTTP request 1/1]
+    [Response in frame: 17]
+    File Data: 1163 bytes
+HTML Form URL Encoded: application/x-www-form-urlencoded
+    Form item: "0<text>" = "Mr Hacker"
+    Form item: "0<label>" = "Name"
+    Form item: "1<text>" = "Hacker@rockstarcorp.com"
+    Form item: "1<label>" = "Email"
+    Form item: "2<text>" = ""
+    Form item: "2<label>" = "Phone"
+    Form item: "3<textarea>" = "Hi Got The Blues Corp!  This is a hacker that works at Rock Star Corp.  Rock Star has left port 22, SSH open if you want to hack in.  For 1 Milliion Dollars I will provide you the user and password!"
+        Key: 3<textarea>
+        Value: Hi Got The Blues Corp!  This is a hacker that works at Rock Star Corp.  Rock Star has left port 22, SSH open if you want to hack in.  For 1 Milliion Dollars I will provide you the user and password!
+
+
+This occurred on Layer 7 - Application. This includes input on a website.

@@ -1,0 +1,23 @@
+﻿HW10: Cryptography
+
+
+1. ozcjmz = gruber (Caesar Key of 8)
+   1. Key = 6skd8s
+2. 01000111011001010110111001101110011001010111001001101111 → Gennero
+   1. Key = cy8snd2
+3. Echo 4qMOIvwEGXzvkMvRE2bNbg > riddle3.txt
+   1. openssl enc -pbkdf2 -nosalt -aes-256-cbc -d -in riddle3 -base64 -K 5284A3B154D99487D9D8D8508461A478C7BEB67081A64AD9A15147906E8E8564 -iv 1907C5E255F7FC9A6B47B0E789847AED
+   2. Output: takagi
+   3. Key: ud6s98n
+4. Jill’s Public key
+   1. Jill’s private Key
+   2. 12 Sym, 15 Asym.
+   3. Alice’s Public
+   4. Key: 7gsn3nd2
+5. Used https://www.md5online.org/md5-decrypt.html to reverse MD5: 3b75cdd826a16f5bba0076690f644dc7
+   1. argyle
+   2. Key: ajy39d2
+6. steghide extract -sf mary-lamb.jpg
+   1. PASSPHARE = ABC
+   2. mcclane
+   3. 7skahd6
